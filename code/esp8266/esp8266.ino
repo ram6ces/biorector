@@ -73,49 +73,22 @@ void DOWN(int turn) {
 void lightON(){
   Serial.println("light ON");
   digitalWrite(light, HIGH);
-  delay(5000);
 }
 void lightOFF(){
   Serial.println("light OFF");
   digitalWrite(light, LOW);
-  delay(5000);
 }
 
 void loop() {
- 	// Serial.println(F("Running clockwise"));
- 	// digitalWrite(dirPin, HIGH); // Enables the motor to move in a particular direction
- 	// // Makes 200 pulses for making one full cycle rotation
- 	// for (int i = 0; i < stepsPerRev; i++) {
- 	// 		digitalWrite(stepPin, HIGH);
- 	// 		delayMicroseconds(pulseWidthMicros);
- 	// 		digitalWrite(stepPin, LOW);
- 	// 		delayMicroseconds(millisBtwnSteps);
- 	// }
-  // Serial.println(F("Break"));
 
- 	// delay(2000); // One second delay
+  lightOFF(); //Turn off the bulb
+  delay(2000); // for security
+  DOWN(5); //5 turn of the stepper to bring down the bulb into the mixture
 
- 	// Serial.println(F("Running counter-clockwise"));
- 	// digitalWrite(dirPin, LOW); //Changes the rotations direction
- 	// // Makes 400 pulses for making two full cycle rotation
- 	// for (int i = 0; i < 2*stepsPerRev; i++) {
- 	// 		digitalWrite(stepPin, HIGH);
- 	// 		delayMicroseconds(pulseWidthMicros);
- 	// 		digitalWrite(stepPin, LOW);
- 	// 		delayMicroseconds(millisBtwnSteps);
- 	// }
+  delay(3*60*60*1000); //3 hours in milliseconds
 
-  // clockwise(3);
- 	// delay(5000);
-
-  lightOFF();
-  delay(2000);
-  //DOWN(5);
-
-  delay(6000);
-
-  //UP(5);
-  delay(2000);
-  lightON();
-  delay(5000);
+  UP(5); //5 turn of the stepper to bring up the bulp from the mixture
+  delay(2000); //for security
+  lightON(); //turn on the bulb
+  delay(3*60*60*1000); //3 hours in milliseconds
 }
