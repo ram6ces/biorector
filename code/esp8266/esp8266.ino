@@ -110,11 +110,12 @@ void loop() {
 
   lightOFF();
   delay(2000);
-  DOWN(5);
+  //DOWN(5);
 
   delay(6000);
 
-  UP(5);
+  //UP(5);
   delay(2000);
   lightON();
+  delay(5000);
 }
